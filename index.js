@@ -2,6 +2,7 @@
 const inquirer = require('inquirer');
 //adds the file system module
 const fs = require('fs');
+const { renderLicenseBadge , renderLicenseSection , generateMarkdown } = require('./utils/generateMarkdown')
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -13,14 +14,6 @@ const questions = [
         type: 'input',
         message: 'Who is the author of this project?',
         name: 'author'
-    },
-    {
-        type: 'checkbox',
-        message: 'What sections do you require?(choose all that apply)',
-        name: 'table-of-contents',
-        choices: [
-            'description', 'install', 'useage', 'contribute', 'testing', 'Contact Info', 'license'
-        ]
     },
     {
         type: 'input',
@@ -60,6 +53,7 @@ const questions = [
     {
         type: 'list',
         message: 'what kind of license',
+        name: 'license',
         choices: [
             'MIT',
             'GNU',
@@ -67,17 +61,24 @@ const questions = [
         ]
     }
 ];
-.then((response) => fs.writeFileSync( questions.title , response ))
 
 
 // TODO: Create a function to write README file
-let fileName = 
-function writeToFile(fileName, response) {
-    fs.writeFileSync(`${fileName}`, )
+
+function writeToFile(response) {
+    console.log(response)
+    const fileName = `${response.title.toLowerCase().split(' ').join('')}.md`;
+    const license = response.license
+    renderLicenseBadge(license);
+    renderLicenseSection(license, response);
+    fs.writeFile(`${fileName}`, generateMarkdown(response), (err) => err ? console.log(err) : console.log('Success!'))
 }
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions);
+    inquirer.prompt(questions)
+    .then((response) => {
+        writeToFile(response); 
+    })
 }
 
 // Function call to initialize app
