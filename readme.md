@@ -19,6 +19,8 @@
   all thats required for install is type in'npm install'
   ## Usage
   watch the video to see how it will be used link here. [video](https://drive.google.com/file/d/10X-9c9Mk5tRldUmFAnHgLHV4Jcecwjqi/view)
+
+  ![example](./assets/screenshot.png)
   ## License
   MIT License
 
@@ -47,5 +49,5 @@
   currently just run the program and note any bugs.
   ## Questions
   For questions please contact: Fraser Kennedy
-  at  ydennekrf@gmail.com
-  Github Profile: ydennekrf 
+  at  [ydennekrf@gmail.com](mailto:ydennekrf@gmail.com)
+  Github Profile: [ydennekrf](https://github.com/Ydennekrf) 

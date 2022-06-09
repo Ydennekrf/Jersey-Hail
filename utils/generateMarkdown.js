@@ -745,8 +745,8 @@ function generateMarkdown(response) {
   ${response.test}
   ## Questions
   For questions please contact: ${response.author}
-  at  ${response.email}
-  Github Profile: ${response.gitHubUser} `
+  at  [${response.email}](mailto:${response.email})
+  Github Profile: [${response.gitHubUser}](https://github.com/${response.gitHubUser}) `
 ;
 }
 
