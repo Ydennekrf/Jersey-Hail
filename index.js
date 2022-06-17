@@ -71,7 +71,7 @@ function writeToFile(response) {
     const license = response.license
     renderLicenseBadge(license);
     renderLicenseSection(license, response);
-    fs.writeFile(`${fileName}`, generateMarkdown(response), (err) => err ? console.log(err) : console.log('Success!'))
+    fs.writeFile(`./assets/${fileName}`, generateMarkdown(response), (err) => err ? console.log(err) : console.log('Success!'))
 }
 // TODO: Create a function to initialize app
 function init() {
